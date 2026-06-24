@@ -29,11 +29,35 @@ This project analyzes a DNA sequence and gives complete biological information l
 
 ## 🚀 How to Run This Project
 
+
+## 🌐 Live App
+
+👉 **Try the app here:** https://dna-analyzer-srithi.streamlit.app
+
+---
+
+## 🚀 How to Run Locally
+
 1. Open Google Colab 👉 https://colab.research.google.com
 2. Upload the `dna_analyzer.ipynb` file
 3. Run each cell one by one
 4. Change the DNA sequence to analyze your own!
 
+---
+
+## 🛠️ How the App Works
+
+```
+User pastes DNA sequence
+        ↓
+App analyzes using Biopython
+        ↓
+Shows GC Content, mRNA, Protein
+        ↓
+Displays Bar Chart + Pie Chart
+        ↓
+Final Summary Report
+```
 ---
 
 ## 📊 Output You Will Get
