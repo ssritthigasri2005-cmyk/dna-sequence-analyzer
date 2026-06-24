@@ -1,0 +1,122 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMYTIUn4cEo7rp305YppuAd",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ssritthigasri2005-cmyk/dna-sequence-analyzer/blob/main/dna%20_sequnencing\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "A1JzXZZ3o3q6",
+        "outputId": "c2247fd4-2b53-4f40-d567-014c6a3e3957"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting biopython\n",
+            "  Downloading biopython-1.87-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)\n",
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.12/dist-packages (3.10.0)\n",
+            "Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (2.2.2)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from biopython) (2.0.2)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (1.3.3)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (0.12.1)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (4.63.0)\n",
+            "Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (1.5.0)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (26.2)\n",
+            "Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (11.3.0)\n",
+            "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (3.3.2)\n",
+            "Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (2.9.0.post0)\n",
+            "Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas) (2025.2)\n",
+            "Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas) (2026.2)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)\n",
+            "Downloading biopython-1.87-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m16.6 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: biopython\n",
+            "Successfully installed biopython-1.87\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install biopython matplotlib pandas"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Your first bioinformatics code!\n",
+        "from Bio.Seq import Seq\n",
+        "\n",
+        "# Define a DNA sequence\n",
+        "dna = Seq(\"ATGCTAGCTAGCTAGCTAGC\")\n",
+        "\n",
+        "# Basic analysis\n",
+        "print(\"DNA Sequence:    \", dna)\n",
+        "print(\"Length:          \", len(dna))\n",
+        "print(\"GC Content %:    \", round((dna.count(\"G\") + dna.count(\"C\")) / len(dna) * 100, 2))\n",
+        "print(\"Complement:      \", dna.complement())\n",
+        "print(\"Reverse Complement:\", dna.reverse_complement())\n",
+        "print(\"mRNA (Transcription):\", dna.transcribe())\n",
+        "print(\"Protein (Translation):\", dna.transcribe().translate())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TAkgosIno_wT",
+        "outputId": "32acb02e-7433-41e9-b888-9ba50edf0633"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DNA Sequence:     ATGCTAGCTAGCTAGCTAGC\n",
+            "Length:           20\n",
+            "GC Content %:     50.0\n",
+            "Complement:       TACGATCGATCGATCGATCG\n",
+            "Reverse Complement: GCTAGCTAGCTAGCTAGCAT\n",
+            "mRNA (Transcription): AUGCUAGCUAGCUAGCUAGC\n",
+            "Protein (Translation): MLAS*L\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/usr/local/lib/python3.12/dist-packages/Bio/Seq.py:2874: BiopythonWarning: Partial codon, len(sequence) not a multiple of three. Explicitly trim the sequence or add trailing N before translation. This may become an error in future.\n",
+            "  warnings.warn(\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
